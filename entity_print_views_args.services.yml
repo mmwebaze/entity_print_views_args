@@ -1,0 +1,5 @@
+services:
+  entity_print_views_args.route_subscriber:
+    class: Drupal\entity_print_views_args\Routing\ViewsArgsRouteSubscriber
+    tags:
+      - { name: event_subscriber }

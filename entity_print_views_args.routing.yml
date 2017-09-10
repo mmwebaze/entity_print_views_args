@@ -1,0 +1,15 @@
+entity_print_views_args.viewRedirect:
+  path: '/entity_print_views_args/{export_type}/{entity_type}/{entity_id}'
+  defaults:
+    _controller: '\Drupal\entity_print_views_args\Controller\PrintEntityController::viewEntityPrintRedirect'
+    _title: 'entity print views args'
+  requirements:
+    _permission: 'access content'
+
+entity_print_views_args.view:
+  path: '/entity_print_views_args/{export_type}/{entity_type}/{entity_id}/{view_args}'
+  defaults:
+    _controller: '\Drupal\entity_print_views_args\Controller\PrintEntityController::viewEntityPrint'
+    _title: 'entity print view'
+  requirements:
+    _permission: 'access content'

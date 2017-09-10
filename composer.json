@@ -1,0 +1,14 @@
+{
+  "name": "drupal/entity_print_views_args",
+  "type": "drupal-module",
+  "description": "My Awesome Module",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/entity_print_views_args",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/entity_print_views_args",
+    "source": "http://cgit.drupalcode.org/entity_print_views_args"
+  },
+  "require": { }
+}

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains entity_print_views_args.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function entity_print_views_args_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the entity_print_views_args module.
+    case 'help.page.entity_print_views_args':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function entity_print_views_args_theme() {
+  return [
+    'entity_print_views_args' => [
+      'render element' => 'children',
+    ],
+  ];
+}

@@ -1,0 +1,7 @@
+name: entity_print_views_args
+type: module
+description: My Awesome Module
+core: 8.x
+package: Custom
+dependencies:
+  - entity_print
