@@ -5,6 +5,9 @@ use Drupal\Core\Routing\RouteSubscriberBase;
 use Symfony\Component\Routing\RouteCollection;
 
 class ViewsArgsRouteSubscriber extends RouteSubscriberBase {
+  /**
+   * {@inheritdoc}
+   */
   protected function alterRoutes(RouteCollection $collection) {
 
     if ($route = $collection->get('entity_print.legacy_view')) {

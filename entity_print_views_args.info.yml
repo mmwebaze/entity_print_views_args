@@ -1,6 +1,6 @@
 name: entity_print_views_args
 type: module
-description: My Awesome Module
+description: Supports printing of a single entity rendered by views
 core: 8.x
 package: Custom
 dependencies:

@@ -31,6 +31,17 @@ class PrintEntityController extends EntityPrintController {
     );
   }
 
+  /**
+   * @param string $export_type
+   *   The export type
+   * @param $entity_type
+   *   The entity type
+   * @param $entity_id
+   *   The entity id
+   * @param Request $request
+   *   The request contains the contextual filter
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   */
   public function viewEntityPrintRedirect($export_type, $entity_type, $entity_id, Request $request) {
 
    $parameters = [
@@ -41,6 +52,18 @@ class PrintEntityController extends EntityPrintController {
    ];
     return $this->redirect('entity_print_views_args.view', $parameters);
   }
+
+  /**
+   * @param $export_type
+   *   The export type
+   * @param $entity_type
+   *   The entity type
+   * @param $entity_id
+   *   The entity id
+   * @param $view_args
+   *   The contextual filter selected
+   *
+   */
   public function viewEntityPrint($export_type, $entity_type, $entity_id, $view_args) {
     // Create the Print engine plugin.
     $config = $this->config('entity_print.settings');
@@ -48,6 +71,7 @@ class PrintEntityController extends EntityPrintController {
     $view = $entity->getExecutable();
 
     $view->setArguments(['nid' => $view_args]);
+    //$view->execute();
 
     $print_engine = $this->pluginManager->createSelectedInstance($export_type);
     return (new StreamedResponse(function () use ($entity, $print_engine, $config) {
