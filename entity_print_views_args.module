@@ -16,7 +16,7 @@ function entity_print_views_args_help($route_name, RouteMatchInterface $route_ma
     case 'help.page.entity_print_views_args':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      $output .= '<p>' . t('Supports printing of a single entity rendered by views.') . '</p>';
       return $output;
 
     default:

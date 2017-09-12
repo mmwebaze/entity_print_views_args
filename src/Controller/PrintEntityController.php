@@ -48,9 +48,14 @@ class PrintEntityController extends EntityPrintController {
      'export_type' => $export_type,
      'entity_type' => $entity_type,
      'entity_id' => $entity_id,
-     'view_args' => $request->get('view_args'),
    ];
-    return $this->redirect('entity_print_views_args.view', $parameters);
+    $view_args = $request->get('view_args');
+
+    if ($view_args){
+      $parameters['view_args'] = $view_args;
+      return $this->redirect('entity_print_views_args.view', $parameters);
+    }
+    return $this->redirect('entity_print.view', $parameters);
   }
 
   /**
@@ -69,9 +74,7 @@ class PrintEntityController extends EntityPrintController {
     $config = $this->config('entity_print.settings');
     $entity = $this->entityTypeManager->getStorage($entity_type)->load($entity_id);
     $view = $entity->getExecutable();
-
     $view->setArguments(['nid' => $view_args]);
-    //$view->execute();
 
     $print_engine = $this->pluginManager->createSelectedInstance($export_type);
     return (new StreamedResponse(function () use ($entity, $print_engine, $config) {
